@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #e0f7fa;
+            background-image: url('https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/325/recycling-symbol_267b.png');
+            background-size: cover;  /* Makes the recycling logo cover the entire background */
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);  /* Slight transparency for form */
+            padding: 40px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #388e3c;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #388e3c;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #388e3c;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #388e3c;
+        }
+        a {
+            color: #4caf50;
+            font-size: 1.1em;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        a:hover {
+            color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required><br>
+
+            <button type="submit">Register</button>
+        </form>
+        <a href="{{ url_for('login') }}">Already have an account? Login here</a>
+    </div>
+</body>
+</html>
