@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            background-color: lightblue; /* Changed background color to pleasant blue */
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: darkblue;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px #000;
+        }
+        p {
+            font-size: 1.2em;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            max-width: 500px;
+        }
+        a {
+            font-size: 1em;
+            color: darkgreen;
+            text-decoration: none;
+            border: 1px solid darkgreen;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        a:hover {
+            background-color: forestgreen;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    <p>Your current points: {{ user.points }}</p>
+    <a href="{{ url_for('redeem') }}">Redeem Points</a>
+</body>
+</html>
