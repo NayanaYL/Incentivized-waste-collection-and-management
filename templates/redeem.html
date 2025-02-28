@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redeem Points</title>
+    <style>
+        body {
+            background-color: lightblue;
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: darkblue;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px #000;
+        }
+        p {
+            font-size: 1.2em;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            max-width: 500px;
+        }
+        form {
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            max-width: 600px;
+            text-align: left;
+        }
+        label {
+            font-size: 1em;
+            color: darkgreen;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, button {
+            font-size: 1em;
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid darkgreen;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: darkgreen;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: forestgreen;
+        }
+        a {
+            font-size: 1em;
+            color: darkblue;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        a:hover {
+            background-color: lightblue;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Redeem Your Points</h1>
+
+    <!-- Display an error message if there is one -->
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <!-- Points Information -->
+    <p>Hello, {{ username }}! You have {{ points }} points available.</p>
+
+    <!-- Redeem Form -->
+    <form method="POST" action="{{ url_for('redeem', username=username) }}">
+        <label for="redeem_points">Points to Redeem:</label>
+        <input type="number" id="redeem_points" name="redeem_points" min="1" required>
+        
+        <label for="option">Select Redemption Option:</label>
+        <select id="option" name="option" required>
+            <option value="bank_transfer">Bank Transfer</option>
+            <option value="collect_cash">Collect Cash</option>
+        </select>
+        
+        <button type="submit">Redeem</button>
+    </form>
+
+    <br>
+    <!-- Link to go back to the dashboard -->
+    <a href="{{ url_for('dashboard', username=username) }}">Back to Dashboard</a>
+
+</body>
+</html>
