@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            background-color: lightblue; /* Changed background color to pleasant blue */
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: darkblue;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px #000;
+        }
+        p {
+            font-size: 1.2em;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            max-width: 500px;
+        }
+        button {
+            font-size: 1em;
+            color: white;
+            background-color: darkgreen;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        button:hover {
+            background-color: forestgreen;
+        }
+        a {
+            text-decoration: none;
+            color: darkblue;
+            font-size: 1em;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        a:hover {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to your Dashboard, {{ username }}!</h1>
+
+    <p>You have {{ points }} points available.</p>
+
+    <!-- Button to redeem points -->
+    <a href="{{ url_for('redeem', username=username) }}">
+        <button>Redeem Points</button>
+    </a>
+
+    <!-- Link to go back to home page -->
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
