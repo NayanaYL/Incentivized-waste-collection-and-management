@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            color: #004d40;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 100px;
+            color: green;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 50%;
+            max-width: 400px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #004d40;
+        }
+
+        .kannada {
+            font-size: 1.5em;
+            color: #004d40;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        ♻️
+    </div>
+    <h1>Welcome to Waste Management</h1>
+    <div class="image-container">
+        <img src="/mnt/data/image.png" alt="REUSE REDUCE RECYCLE">
+    </div>
+    <p>Join the movement to help protect our environment through effective waste recycling!</p>
+    <p class="kannada">ಪರಿಸರ ಸಂರಕ್ಷಣೆ ನಮ್ಮೆಲ್ಲರ ಹೊಣೆ.</p>
+    <a href="{{ url_for('login') }}" class="btn">Login</a>
+</body>
+</html>
