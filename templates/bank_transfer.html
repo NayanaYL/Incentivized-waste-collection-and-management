@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Transfer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #43a047, #66bb6a);
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            background-color: #005b96;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 20px;
+            margin: 50px auto;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #005b96;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003f69;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #005b96;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .success-message {
+            text-align: center;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Bank Transfer</h1>
+
+    <p>You are redeeming <strong>{{ redeem_points }}</strong> points.</p>
+
+    <form method="POST">
+        <label>Account Name:</label>
+        <input type="text" name="account_name" value="{{ bank_details.get('account_name', '') }}" required>
+
+        <label>Account Number:</label>
+        <input type="text" name="account_number" value="{{ bank_details.get('account_number', '') }}" required>
+
+        <label>IFSC Code:</label>
+        <input type="text" name="ifsc" value="{{ bank_details.get('ifsc', '') }}" required>
+
+        <label>Bank Name:</label>
+        <input type="text" name="bank_name" value="{{ bank_details.get('bank_name', '') }}" required>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{{ url_for('dashboard', username=username) }}">Back to Dashboard</a>
+
+    {% if success %}
+    <p class="success-message">Bank details saved successfully! You redeemed {{ redeem_points }} points.</p>
+    {% endif %}
+</body>
+</html>
